@@ -329,6 +329,5 @@ await waitActions.waitForResponse(/api\/users/);
 
 For issues and questions:
 - Create an issue in the repository
-- Contact the automation team
 
 
