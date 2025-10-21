@@ -1,6 +1,6 @@
-import { test, expect } from '../../src/core/base/BaseTest';
-import { LoginPage } from '../../src/pages/LoginPage';
-import { UserFormPage } from '../../src/pages/UserFormPage';
+import { test, expect } from '../../../src/core/base/BaseTest';
+import { LoginPage } from '../../../src/pages/LoginPage';
+import { UserFormPage } from '../../../src/pages/UserFormPage';
 
 test.describe('Combined Web and API Tests', () => {
     test('Create user via API and verify in UI', async ({ webDriver, apiDriver }) => {

@@ -1,7 +1,7 @@
 
-import { test, expect } from '../src/core/base/BaseTest';
-import { LoginPage } from '../src/pages/LoginPage';
-import { DashboardPage } from '../src/pages/DashboardPage';
+import { test, expect } from '../../src/core/base/BaseTest';
+import { LoginPage } from '../../src/pages/LoginPage';
+import { DashboardPage } from '../../src/pages/DashboardPage';
 
 test.describe('Login Tests', () => {
   test('Successful login with valid credentials', async ({ webDriver }) => {

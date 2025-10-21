@@ -1,6 +1,6 @@
-import { test, expect } from '../src/core/base/BaseTest';
-import { LoginPage } from '../src/pages/LoginPage';
-import { DashboardPage } from '../src/pages/DashboardPage';
+import { test, expect } from '../../src/core/base/BaseTest';
+import { LoginPage } from '../../src/pages/LoginPage';
+import { DashboardPage } from '../../src/pages/DashboardPage';
 
 import * as fs from 'fs';
 

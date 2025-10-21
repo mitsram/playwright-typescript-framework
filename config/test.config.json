@@ -17,8 +17,8 @@
     },
     "environment": {
       "name": "test",
-      "url": "http://localhost:3000",
-      "apiUrl": "http://localhost:3000/api",
+      "url": "https://demowebshop.tricentis.com/",
+      "apiUrl": "https://petstore.swagger.io",
       "credentials": {
         "username": "testuser",
         "password": "testpass"

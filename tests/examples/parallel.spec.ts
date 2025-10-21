@@ -1,4 +1,4 @@
-import { test, expect } from '../src/core/base/BaseTest';
+import { test, expect } from '../../src/core/base/BaseTest';
 
 test.describe.configure({ mode: 'parallel' });
 

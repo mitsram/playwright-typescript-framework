@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '../../../src/core/base/BaseTest';
 
 test.describe('User API Tests', () => {
     test('GET - Fetch all users', async ({ apiDriver }) => {

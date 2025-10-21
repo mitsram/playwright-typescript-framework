@@ -1,5 +1,5 @@
-import { test, expect } from '../src/core/base/BaseTest';
-import { UserFormPage } from '../src/pages/UserFormPage';
+import { test, expect } from '../../src/core/base/BaseTest';
+import { UserFormPage } from '../../src/pages/UserFormPage';
 
 test.describe('User Form Tests', () => {
   test('Create new user with all fields', async ({ webDriver }) => {
