@@ -1,0 +1,27 @@
+{
+    "testConfig": {
+      "baseUrl": "https://example.com",
+      "apiBaseUrl": "https://api.example.com",
+      "timeout": 60000,
+      "retryAttempts": 3,
+      "browserType": "chromium",
+      "headless": true,
+      "slowMo": 0,
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screenshotOnFailure": true,
+      "videoOnFailure": false,
+      "traceOnFailure": true
+    },
+    "environment": {
+      "name": "production",
+      "url": "https://example.com",
+      "apiUrl": "https://api.example.com",
+      "credentials": {
+        "username": "produser",
+        "password": "prodpass"
+      }
+    }
+}

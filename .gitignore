@@ -1,0 +1,15 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+screenshots/
+videos/
+logs/
+.env
+*.log
+.DS_Store
+package-lock.json
+yarn.lock
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

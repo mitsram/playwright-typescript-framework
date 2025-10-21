@@ -1,0 +1,40 @@
+{
+  "name": "playwright-typescript-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "TEST_ENV=test playwright test",
+    "test:dev": "TEST_ENV=dev playwright test",
+    "test:prod": "TEST_ENV=prod playwright test",
+    "test:headed": "TEST_ENV=test playwright test --headed",
+    "test:debug": "TEST_ENV=test playwright test --debug",
+    "test:ui": "TEST_ENV=test playwright test --ui",
+    "test:report": "playwright show-report",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "automation",
+    "testing",
+    "playwright",
+    "typescript",
+    "framework"
+  ],
+  "author": "mitsram",
+  "license": "MIT",
+  "dependencies": {
+    "@playwright/test": "^1.56.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.0"
+  }
+}

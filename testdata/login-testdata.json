@@ -1,0 +1,25 @@
+[
+    {
+      "username": "validuser@example.com",
+      "password": "ValidPassword123!",
+      "expectedResult": "success"
+    },
+    {
+      "username": "invaliduser@example.com",
+      "password": "WrongPassword",
+      "expectedResult": "failure",
+      "errorMessage": "Invalid credentials"
+    },
+    {
+      "username": "",
+      "password": "password",
+      "expectedResult": "failure",
+      "errorMessage": "Username is required"
+    },
+    {
+      "username": "user@example.com",
+      "password": "",
+      "expectedResult": "failure",
+      "errorMessage": "Password is required"
+    }
+  ]

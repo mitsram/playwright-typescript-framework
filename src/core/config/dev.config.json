@@ -1,0 +1,27 @@
+{
+    "testConfig": {
+      "baseUrl": "https://dev.example.com",
+      "apiBaseUrl": "https://dev.example.com/api",
+      "timeout": 30000,
+      "retryAttempts": 2,
+      "browserType": "chromium",
+      "headless": false,
+      "slowMo": 50,
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screenshotOnFailure": true,
+      "videoOnFailure": true,
+      "traceOnFailure": true
+    },
+    "environment": {
+      "name": "development",
+      "url": "https://dev.example.com",
+      "apiUrl": "https://dev.example.com/api",
+      "credentials": {
+        "username": "devuser",
+        "password": "devpass"
+      }
+    }
+  }
