@@ -13,8 +13,8 @@ Enterprise-grade Test Automation Framework using TypeScript and Playwright for W
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd test-automation-framework
+git clone git@github.com:mitsram/playwright-typescript-framework.git
+cd playwright-typescript-framework
 
 # Install dependencies
 npm install
