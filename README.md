@@ -285,16 +285,6 @@ Stack Trace:
   at Test.testFunction (tests/login.spec.ts:15:20)
 ```
 
-## Best Practices
-
-1. **Page Objects**: Keep page objects focused and single-responsibility
-2. **Test Data**: Store test data in separate files under `testdata/`
-3. **Selectors**: Use data-testid attributes for more stable selectors
-4. **Wait Strategies**: Prefer explicit waits over arbitrary timeouts
-5. **Error Handling**: Let the framework handle retries and errors
-6. **Logging**: Use the built-in logger for consistent logging
-7. **Cleanup**: Always cleanup test data in API tests
-
 ## Advanced Features
 
 ### Custom Element Options
