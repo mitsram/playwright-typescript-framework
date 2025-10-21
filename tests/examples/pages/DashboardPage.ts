@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BasePage } from '@core/base/BasePage';
+import { BasePage } from '../../../src/core/base/BasePage';
 
 export class DashboardPage extends BasePage {
     protected pageUrl = '/dashboard';

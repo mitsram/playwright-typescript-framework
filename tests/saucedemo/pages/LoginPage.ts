@@ -1,20 +1,19 @@
 
 import { Page } from '@playwright/test';
-import { BasePage } from '../core/base/BasePage';
-import { IElementOptions } from '../types/IElementOptions';
+import { BasePage } from '../../../src/core/base/BasePage';
+import { IElementOptions } from '../../../src/types/IElementOptions';
 
 export class LoginPage extends BasePage {
-  protected pageUrl = '/login';
+
+  protected pageUrl = '';
 
   // Page Element Selectors
   private readonly selectors = {
-    usernameField: '#username',
+    usernameField: '#user-name',
     passwordField: '#password',
-    loginButton: '#login-btn',
-    errorMessage: '.error-message',
-    rememberMeCheckbox: '#remember-me',
-    forgotPasswordLink: 'a[href="/forgot-password"]',
-    pageTitle: 'h1.login-title'
+    loginButton: '#login-button',
+    errorMessage: '.error-message-container',
+    pageTitle: '.login_logo'
   };
 
   constructor(page: Page) {
@@ -37,27 +36,12 @@ export class LoginPage extends BasePage {
    * Perform login action
    */
   public async login(username: string, password: string, options?: IElementOptions): Promise<void> {
-    this.logger.info(`Attempting login with username: ${username}`);
+
+    this.logger.info(`Attempting login with username: ${username}`);    
     
-    // Fill username field
-    await this.elementActions.fillTextFieldAsync(
-      this.selectors.usernameField,
-      username,
-      { retryOnFailure: true, ...options }
-    );
-
-    // Fill password field
-    await this.elementActions.fillTextFieldAsync(
-      this.selectors.passwordField,
-      password,
-      { retryOnFailure: true, ...options }
-    );
-
-    // Click login button
-    await this.elementActions.clickButtonAsync(
-      this.selectors.loginButton,
-      { retryOnFailure: true, ...options }
-    );
+    await this.elementActions.fillTextFieldAsync(this.selectors.usernameField, username, { retryOnFailure: true, ...options });    
+    await this.elementActions.fillTextFieldAsync(this.selectors.passwordField, password, { retryOnFailure: true, ...options });    
+    await this.elementActions.clickButtonAsync(this.selectors.loginButton, { retryOnFailure: true, ...options });
 
     // Wait for navigation
     await this.waitActions.waitForLoadState('networkidle');
@@ -72,16 +56,7 @@ export class LoginPage extends BasePage {
     await this.navigate();
     await this.login(username, password);
   }
-
-  /**
-   * Check remember me checkbox
-   */
-  public async checkRememberMe(options?: IElementOptions): Promise<void> {
-    await this.elementActions.checkCheckboxAsync(
-      this.selectors.rememberMeCheckbox,
-      options
-    );
-  }
+  
 
   /**
    * Get error message
@@ -94,18 +69,8 @@ export class LoginPage extends BasePage {
    * Check if error message is displayed
    */
   public async isErrorDisplayed(): Promise<boolean> {
-    return await this.elementActions.isElementVisibleAsync(
-      this.selectors.errorMessage,
-      { stopOnError: false }
-    );
-  }
-
-  /**
-   * Click forgot password link
-   */
-  public async clickForgotPassword(): Promise<void> {
-    await this.elementActions.clickButtonAsync(this.selectors.forgotPasswordLink);
-  }
+    return await this.elementActions.isElementVisibleAsync(this.selectors.errorMessage, { stopOnError: false });
+  }  
 
   /**
    * Clear login form

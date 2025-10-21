@@ -54,11 +54,15 @@ export class ApiDriver {
     options?: IApiRequestOptions
   ): Promise<IApiResponse<T>> {
     const startTime = Date.now();
-    const fullUrl = endpoint.startsWith('http') ? endpoint : `${this.baseUrl}${endpoint}`;
+    const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.substring(1) : endpoint;
+    const fullUrl = normalizedEndpoint.startsWith('http') ? normalizedEndpoint : `${this.baseUrl}/${normalizedEndpoint}`;
+
+    //const fullUrl = endpoint.startsWith('http') ? endpoint : `${this.baseUrl}${endpoint}`;
 
     try {
       this.logger.info(`API ${method} Request: ${fullUrl}`, {
         params: options?.params,
+        data: options?.data,
         headers: options?.headers
       });
 
@@ -159,41 +163,23 @@ export class ApiDriver {
     }
   }
 
-  public async get<T = any>(
-    endpoint: string,
-    options?: IApiRequestOptions
-  ): Promise<IApiResponse<T>> {
+  public async get<T = any>(endpoint: string, options?: IApiRequestOptions): Promise<IApiResponse<T>> {
     return this.executeRequest<T>('GET', endpoint, options);
   }
 
-  public async post<T = any>(
-    endpoint: string,
-    data?: any,
-    options?: IApiRequestOptions
-  ): Promise<IApiResponse<T>> {
+  public async post<T = any>(endpoint: string, data?: any, options?: IApiRequestOptions): Promise<IApiResponse<T>> {
     return this.executeRequest<T>('POST', endpoint, { ...options, data });
   }
 
-  public async put<T = any>(
-    endpoint: string,
-    data?: any,
-    options?: IApiRequestOptions
-  ): Promise<IApiResponse<T>> {
+  public async put<T = any>(endpoint: string, data?: any, options?: IApiRequestOptions): Promise<IApiResponse<T>> {
     return this.executeRequest<T>('PUT', endpoint, { ...options, data });
   }
 
-  public async patch<T = any>(
-    endpoint: string,
-    data?: any,
-    options?: IApiRequestOptions
-  ): Promise<IApiResponse<T>> {
+  public async patch<T = any>(endpoint: string, data?: any, options?: IApiRequestOptions): Promise<IApiResponse<T>> {
     return this.executeRequest<T>('PATCH', endpoint, { ...options, data });
   }
 
-  public async delete<T = any>(
-    endpoint: string,
-    options?: IApiRequestOptions
-  ): Promise<IApiResponse<T>> {
+  public async delete<T = any>(endpoint: string, options?: IApiRequestOptions): Promise<IApiResponse<T>> {
     return this.executeRequest<T>('DELETE', endpoint, options);
   }
 

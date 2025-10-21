@@ -1,7 +1,7 @@
 {
     "testConfig": {
       "baseUrl": "http://localhost:3000",
-      "apiBaseUrl": "http://localhost:3000/api",
+      "apiBaseUrl": "https://petstore.swagger.io/v2",
       "timeout": 30000,
       "retryAttempts": 2,
       "browserType": "chromium",
@@ -17,8 +17,8 @@
     },
     "environment": {
       "name": "test",
-      "url": "https://demowebshop.tricentis.com/",
-      "apiUrl": "https://petstore.swagger.io",
+      "url": "https://saucedemo.com",
+      "apiUrl": "https://petstore.swagger.io/v2",
       "credentials": {
         "username": "testuser",
         "password": "testpass"
