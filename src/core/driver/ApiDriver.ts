@@ -18,7 +18,9 @@ export class ApiDriver {
   };
 
   constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl || this.configManager.getApiBaseUrl();
+    // this.baseUrl = baseUrl || this.configManager.getApiBaseUrl();
+    this.baseUrl = (baseUrl || this.configManager.getApiBaseUrl()).replace(/\/$/, '');
+    console.log('API Base URL:', this.baseUrl); // For debugging
   }
 
   public async initialize(options?: { headers?: Record<string, string> }): Promise<void> {
@@ -53,11 +55,12 @@ export class ApiDriver {
     endpoint: string,
     options?: IApiRequestOptions
   ): Promise<IApiResponse<T>> {
-    const startTime = Date.now();
-    const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.substring(1) : endpoint;
-    const fullUrl = normalizedEndpoint.startsWith('http') ? normalizedEndpoint : `${this.baseUrl}/${normalizedEndpoint}`;
 
-    //const fullUrl = endpoint.startsWith('http') ? endpoint : `${this.baseUrl}${endpoint}`;
+    const startTime = Date.now();
+    //const normalizedEndpoint = endpoint.startsWith('/') ? endpoint.substring(1) : endpoint;
+    //const fullUrl = normalizedEndpoint.startsWith('http') ? normalizedEndpoint : `${this.baseUrl}/${normalizedEndpoint}`;
+
+    const fullUrl = endpoint.startsWith('http') ? endpoint : `${this.baseUrl}${endpoint}`;
 
     try {
       this.logger.info(`API ${method} Request: ${fullUrl}`, {

@@ -18,7 +18,7 @@
     "environment": {
       "name": "test",
       "url": "https://saucedemo.com",
-      "apiUrl": "https://petstore.swagger.io/v2",
+      "apiUrl": "https://petstore.swagger.io",
       "credentials": {
         "username": "testuser",
         "password": "testpass"
